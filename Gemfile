@@ -29,6 +29,9 @@ group :development do
   gem "rack-mini-profiler", require: false
   gem "spring"
   gem "web-console"
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-rails'
 end
 
 group :development, :test do
