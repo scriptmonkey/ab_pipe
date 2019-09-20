@@ -1,0 +1,24 @@
+AllCops:
+  DisplayCopNames: true
+  Exclude:
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'Guardfile'
+    - 'Gemfile'
+    - 'Rakefile'
+    - 'config/initializers/*'
+    - 'config/smtp.rb'
+    - 'lib/tasks/*'
+    - 'config/**/*'
+    - 'node_modules/**/*'
+
+Metrics/BlockLength:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*_spec.rb'
+    - 'spec/spec_helper.rb'
+
+Metrics/AbcSize:
+  Enabled: true
+  Exclude:
+    - 'spec/**/*_spec.rb'

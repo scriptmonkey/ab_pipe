@@ -24,6 +24,17 @@
 #  * zeus: 'zeus rspec' (requires the server to be started separately)
 #  * 'just' rspec: 'rspec'
 
+
+guard :rails, host:'0.0.0.0' do
+  watch('Gemfile.lock')
+  watch(%r{^(config|lib)/.*})
+end
+
+guard :rubocop do
+  watch(%r{.+\.rb$})
+  watch(%r{(?:.+/)?\.rubocop(?:_todo)?\.yml$}) { |m| File.dirname(m[0]) }
+end
+
 guard :rspec, cmd: "bundle exec rspec" do
   require "guard/rspec/dsl"
   dsl = Guard::RSpec::Dsl.new(self)
@@ -89,8 +100,3 @@ end
 # zeus_plan: server                    # custom plan in zeus, only works with `zeus: true`.
 # zeus: false                          # enables zeus gem.
 # CLI: 'rails server'                  # customizes runner command. Omits all options except `pid_file`!
-
-guard :rails, host:'0.0.0.0' do
-  watch('Gemfile.lock')
-  watch(%r{^(config|lib)/.*})
-end
