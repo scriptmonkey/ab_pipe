@@ -1,0 +1,10 @@
+<%= link_to 'Add New', new_equipment_path %>
+<p>
+<% Equipment.all.each do |e| %>
+  <p>
+  <%= e.serial_number %>
+  </p>
+<% end %>
+</p>
+<%= Equipment.count %>
+rjj
