@@ -8,6 +8,7 @@ RSpec.feature 'Visitor signs in' do
     create_user 'user@example.com', 'password'
     sign_in_with 'user@example.com', 'password'
 
+    expect(page).to have_current_path dashboard_path
     expect_user_to_be_signed_in
   end
 
@@ -15,6 +16,7 @@ RSpec.feature 'Visitor signs in' do
     create_user 'user.name@example.com', 'password'
     sign_in_with 'User.Name@example.com', 'password'
 
+    expect(page).to have_current_path dashboard_path
     expect_user_to_be_signed_in
   end
 

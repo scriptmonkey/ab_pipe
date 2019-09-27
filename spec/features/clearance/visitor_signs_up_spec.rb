@@ -15,6 +15,7 @@ RSpec.feature 'Visitor signs up' do
   scenario 'with valid email and password' do
     sign_up_with 'valid@example.com', 'password'
 
+    expect(page).to have_current_path dashboard_path
     expect_user_to_be_signed_in
   end
 
